@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 
 export function NcsbnPromoSections() {
@@ -9,10 +10,12 @@ export function NcsbnPromoSections() {
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             {/* Image */}
             <div className="relative rounded overflow-hidden border border-line bg-soft aspect-[8/7]">
-              <img
-                src="/images/score_improvement_promo.png"
+              <Image
+                src="/images/score_improvement_promo.webp"
                 alt="Score Improvement Progress Graphic"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
             {/* Content */}
@@ -65,10 +68,12 @@ export function NcsbnPromoSections() {
             </div>
             {/* Image */}
             <div className="relative rounded overflow-hidden border border-line bg-white aspect-[8/7] lg:order-last order-first">
-              <img
-                src="/images/certificate_support_promo.png"
+              <Image
+                src="/images/certificate_support_promo.webp"
                 alt="Certificate support illustration"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
             </div>
           </div>

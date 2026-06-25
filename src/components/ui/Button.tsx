@@ -16,6 +16,8 @@ type ButtonProps = {
   className?: string;
   href?: string;
   variant?: ButtonVariant;
+  target?: string;
+  rel?: string;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const variants: Record<ButtonVariant, string> = {
@@ -37,6 +39,8 @@ export function Button({
   href,
   type = "button",
   variant = "primary",
+  target,
+  rel,
   ...props
 }: ButtonProps) {
   const classes = cn(
@@ -47,7 +51,7 @@ export function Button({
 
   if (href) {
     return (
-      <Link className={classes} href={href}>
+      <Link className={classes} href={href} target={target} rel={rel}>
         {children}
       </Link>
     );

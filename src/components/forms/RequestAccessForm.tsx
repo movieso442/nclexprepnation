@@ -25,11 +25,13 @@ const requestSchema = z.object({
   preferredContact: z.enum(["whatsapp", "email", "both"], {
     message: "Select a preferred contact method.",
   }),
+  honeypot: z.string().optional(),
 });
 
 type RequestFormValues = z.infer<typeof requestSchema>;
 type SubmittedRequest = {
   whatsappHref: string;
+  showWhatsAppButton: boolean;
 } | null;
 
 function FieldError({ message }: { message?: string }) {
@@ -99,6 +101,7 @@ export function RequestAccessForm() {
         },
         body: JSON.stringify({
           type: "request-access",
+          sourcePage: typeof window !== "undefined" ? window.location.pathname + window.location.search : "/request-access",
           ...result.data,
         }),
       });
@@ -109,17 +112,12 @@ export function RequestAccessForm() {
       }
 
       const whatsappHref = getRequestAccessWhatsAppHref(result.data);
-      const shouldOpenWhatsApp =
+      const showWhatsAppButton =
         result.data.preferredContact === "whatsapp" ||
         result.data.preferredContact === "both";
 
-      if (shouldOpenWhatsApp) {
-        window.location.assign(whatsappHref);
-        return;
-      }
-
       reset();
-      setSubmitted({ whatsappHref });
+      setSubmitted({ whatsappHref, showWhatsAppButton });
     } catch (error) {
       setSubmitError(
         error instanceof Error ? error.message : "Unable to send your request.",
@@ -141,9 +139,17 @@ export function RequestAccessForm() {
           Thank you. The team will review your details and follow up through
           your preferred contact method.
         </p>
-        <Button className="mt-6" href={submitted.whatsappHref} variant="whatsapp">
-          Continue on WhatsApp
-        </Button>
+        {submitted.showWhatsAppButton && (
+          <Button
+            className="mt-6 block"
+            href={submitted.whatsappHref}
+            variant="whatsapp"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Continue on WhatsApp
+          </Button>
+        )}
         <Button
           className="mt-3"
           onClick={() => {
@@ -160,6 +166,16 @@ export function RequestAccessForm() {
 
   return (
     <form className="grid gap-6" onSubmit={handleSubmit(onSubmit)} noValidate>
+      {/* Honeypot field for spam prevention */}
+      <div className="hidden" aria-hidden="true">
+        <input
+          type="text"
+          autoComplete="off"
+          tabIndex={-1}
+          {...register("honeypot")}
+        />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <label>
           <span className="form-label">Full name</span>

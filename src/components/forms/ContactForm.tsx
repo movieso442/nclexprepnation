@@ -55,6 +55,8 @@ export function ContactForm() {
           email: String(formData.get("email") || ""),
           subject: String(formData.get("subject") || ""),
           message: String(formData.get("message") || ""),
+          sourcePage: typeof window !== "undefined" ? window.location.pathname : "/contact",
+          honeypot: String(formData.get("username") || ""),
         };
 
         try {
@@ -83,6 +85,16 @@ export function ContactForm() {
         }
       }}
     >
+      {/* Honeypot field for spam prevention */}
+      <div className="hidden" aria-hidden="true">
+        <input
+          type="text"
+          name="username"
+          tabIndex={-1}
+          autoComplete="off"
+        />
+      </div>
+
       <div className="grid gap-5 sm:grid-cols-2">
         <label>
           <span className="form-label">Full name</span>

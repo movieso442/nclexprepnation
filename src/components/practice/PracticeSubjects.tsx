@@ -3,6 +3,7 @@
 import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import Link from "next/link";
+import Image from "next/image";
 
 type SubjectItem = {
   id: number;
@@ -86,10 +87,12 @@ export function PracticeSubjects() {
               >
                 {/* Left Side: Image container */}
                 <div className="relative w-full sm:w-[40%] min-h-[160px] sm:min-h-full overflow-hidden shrink-0">
-                  <img
+                  <Image
                     src={subj.imageSrc}
                     alt={subj.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                    fill
+                    sizes="(max-width: 640px) 100vw, 20vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-103"
                   />
                   <div className="absolute inset-0 bg-navy/5 group-hover:bg-transparent transition-colors" />
                 </div>
