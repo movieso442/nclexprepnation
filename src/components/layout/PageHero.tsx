@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 
@@ -24,14 +25,22 @@ export function PageHero({
   imageSrc = "/images/nursing_care_hero.png",
   imageAlt = "NCLEX Preparation",
 }: PageHeroProps) {
+  const optimizedImageSrc = imageSrc
+    .replace(".png", ".webp")
+    .replace(".jpg", ".webp")
+    .replace(".jpeg", ".webp");
+
   return (
     <section className="relative overflow-hidden min-h-[460px] flex items-center border-b border-line bg-slate-100">
       {/* Full Bleed Background Image */}
       <div className="absolute inset-0 z-0">
-        <img
-          src={imageSrc}
+        <Image
+          src={optimizedImageSrc}
           alt={imageAlt}
-          className="w-full h-full object-cover object-center"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
         />
         {/* Clean NCSBN-style overlay gradient for high text readability on the left */}
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/40 lg:to-transparent" />

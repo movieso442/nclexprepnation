@@ -98,22 +98,22 @@ export function buildRequestAccessWhatsAppMessage(
   details: RequestAccessWhatsAppDetails,
 ) {
   return [
-    "Hello NCLEX Prep Nation, I just filled the access request form.",
+    "Hello NCLEX Prep Nation, I would like to request support.",
     "",
-    `Full name: ${details.fullName}`,
+    `Full Name: ${details.fullName}`,
     `Email: ${details.email}`,
-    `WhatsApp number: ${details.whatsapp}`,
+    `WhatsApp Number: ${details.whatsapp}`,
     `Country: ${details.country}`,
-    `Exam type: ${formatExamType(details.examType)}`,
-    `Interested service or package: ${formatPackageInterest(
+    `Exam Type: ${formatExamType(details.examType)}`,
+    `Interested Service/Package: ${formatPackageInterest(
       details.packageInterest,
     )}`,
-    `Preferred contact method: ${formatPreferredContact(
+    `Preferred Contact Method: ${formatPreferredContact(
       details.preferredContact,
     )}`,
     `Message: ${details.message?.trim() || "No extra message provided."}`,
     "",
-    "Please review my request and guide me on the next steps.",
+    "Please contact me with the next steps.",
   ].join("\n");
 }
 

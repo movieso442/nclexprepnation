@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ZoomIn, X, CheckCircle2, Filter, ShieldCheck } from "lucide-react";
+import Image from "next/image";
 import { Card } from "@/components/ui/Card";
 
 type ProofImage = {
@@ -150,7 +151,14 @@ const proofImages: ProofImage[] = [
     status: "Organized Materials Feedback",
     date: "June 2026",
   },
-];
+].map(img => ({
+  id: img.id,
+  src: img.src.replace(".jpg", ".webp").replace(".jpeg", ".webp").replace(".png", ".webp"),
+  name: img.name,
+  program: img.program as "RN" | "PN" | "both",
+  status: img.status,
+  date: img.date
+}));
 
 export function VerifiedProofGallery() {
   const [filter, setFilter] = useState<"all" | "RN" | "PN">("all");
@@ -237,10 +245,12 @@ export function VerifiedProofGallery() {
                   onClick={() => setSelectedImage(proof)}
                   className="relative rounded-lg overflow-hidden border border-slate-100 bg-[#e5ddd5] aspect-[3/4] cursor-pointer group-hover:border-emerald-300 transition-all duration-300 flex items-center justify-center"
                 >
-                  <img
+                  <Image
                     src={proof.src}
                     alt={`${proof.name} candidate review screenshot`}
-                    className="w-full h-full object-cover opacity-90 group-hover:scale-103 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover opacity-90 group-hover:scale-103 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-navy/10 group-hover:bg-navy/35 transition-colors flex items-center justify-center">
                     <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-navy shadow-md border border-line group-hover:scale-110 transition-transform">

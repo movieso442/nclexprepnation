@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   BookCheck,
   Layout,
@@ -67,10 +68,13 @@ export function PracticeQuestionsClient() {
       {/* 1. UWorld-style Hero Banner */}
       <section className="relative overflow-hidden bg-navy text-white text-center py-20 px-4 sm:px-6">
         <div className="absolute inset-0 z-0">
-          <img
-            src="/images/nursing_student_hero.png"
+          <Image
+            src="/images/nursing_student_hero.webp"
             alt="Nursing student practicing questions"
-            className="w-full h-full object-cover opacity-20"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-20"
           />
           <div className="absolute inset-0 bg-[#07162b]/80" />
         </div>

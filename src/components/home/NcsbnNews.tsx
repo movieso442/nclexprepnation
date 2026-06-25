@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Card } from "@/components/ui/Card";
@@ -8,21 +9,21 @@ const newsItems = [
   {
     title: "How to Prepare for NCLEX-RN With a Simple Study Plan",
     desc: "Build a practical, step-by-step review plan around content, daily question practices, rationale review, and clinical judgment.",
-    image: "/images/blog_rn_plan.png",
+    image: "/images/blog_rn_plan.webp",
     category: "Study Plan",
     date: "06/12/2026",
   },
   {
     title: "How to Answer NCLEX Prioritization Questions With Confidence",
     desc: "Master high-yield prioritization frameworks (ABC, safety, stability) to confidently answer delegation and priority questions.",
-    image: "/images/blog_prioritization.png",
+    image: "/images/blog_prioritization.webp",
     category: "Prioritization",
     date: "06/10/2026",
   },
   {
     title: "What Are NGN Case Studies and How Should You Practice Them?",
     desc: "Understand the Next Generation NCLEX format, how to identify crucial cues, prioritize client needs, and practice clinical judgment.",
-    image: "/images/blog_ngn.png",
+    image: "/images/blog_ngn.webp",
     category: "NGN Case Studies",
     date: "06/08/2026",
   },
@@ -51,10 +52,12 @@ export function NcsbnNews() {
             <Card className="flex flex-col overflow-hidden bg-white border border-line hover:shadow-md transition-shadow" key={item.title}>
               {/* Image Container */}
               <div className="relative aspect-[3/2] overflow-hidden bg-soft border-b border-line">
-                <img
+                <Image
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
                 />
                 <span className="absolute bottom-3 left-3 bg-teal text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
                   {item.category}

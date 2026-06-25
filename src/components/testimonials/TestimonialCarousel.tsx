@@ -2,6 +2,7 @@
 
 import { useCallback, useState, useEffect, useRef } from "react";
 import { Star, ChevronLeft, ChevronRight, MessageSquare, ZoomIn, X, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 import { Card } from "@/components/ui/Card";
 
 type Review = {
@@ -20,35 +21,35 @@ const reviewsData: Review[] = [
     type: "whatsapp_image",
     name: "Nurse Jessica, RN",
     status: "Passed in 85 Questions - WhatsApp verified",
-    imageSrc: "/images/whatsapp_review_one.png",
+    imageSrc: "/images/whatsapp_review_one.webp",
   },
   {
     id: 201,
     type: "whatsapp_image",
     name: "Anonymous Candidate",
     status: "Materials Received - WhatsApp feedback",
-    imageSrc: "/images/reviews/review_materials_received.jpeg",
+    imageSrc: "/images/reviews/review_materials_received.webp",
   },
   {
     id: 202,
     type: "whatsapp_image",
     name: "Anonymous Participant",
     status: "Updated Materials Review",
-    imageSrc: "/images/reviews/review_comment_materials_effective.jpeg",
+    imageSrc: "/images/reviews/review_comment_materials_effective.webp",
   },
   {
     id: 203,
     type: "whatsapp_image",
     name: "Yasmine Claire",
     status: "Organized Materials Feedback",
-    imageSrc: "/images/reviews/review_comment_organized_materials.jpeg",
+    imageSrc: "/images/reviews/review_comment_organized_materials.webp",
   },
   {
     id: 101,
     type: "whatsapp_image",
     name: "Nurse Amanda, RN",
     status: "Passed NCLEX-RN - 85 Questions",
-    imageSrc: "/images/reviews/716590718_122103064827353800_7249373183577196934_n.jpg",
+    imageSrc: "/images/reviews/716590718_122103064827353800_7249373183577196934_n.webp",
   },
   {
     id: 2,
@@ -63,7 +64,7 @@ const reviewsData: Review[] = [
     type: "whatsapp_image",
     name: "Nurse Beatrice, LPN",
     status: "Passed NCLEX-PN - First Try",
-    imageSrc: "/images/reviews/717536333_122103064785353800_7352149025524236979_n.jpg",
+    imageSrc: "/images/reviews/717536333_122103064785353800_7352149025524236979_n.webp",
   },
   {
     id: 3,
@@ -78,14 +79,14 @@ const reviewsData: Review[] = [
     type: "whatsapp_image",
     name: "Nurse David, LPN",
     status: "NCLEX-PN Passed - WhatsApp verified",
-    imageSrc: "/images/whatsapp_review_two.png",
+    imageSrc: "/images/whatsapp_review_two.webp",
   },
   {
     id: 103,
     type: "whatsapp_image",
     name: "Nurse Tiffany, RN",
     status: "Passed NCLEX-RN with Visual Rationales",
-    imageSrc: "/images/reviews/718907161_122103060603353800_3206027246719945240_n.jpg",
+    imageSrc: "/images/reviews/718907161_122103060603353800_3206027246719945240_n.webp",
   },
   {
     id: 5,
@@ -100,7 +101,7 @@ const reviewsData: Review[] = [
     type: "whatsapp_image",
     name: "Nurse Elena, LPN",
     status: "Passed NCLEX-PN - 85 Questions",
-    imageSrc: "/images/reviews/718993877_122103061719353800_1888763186096958052_n.jpg",
+    imageSrc: "/images/reviews/718993877_122103061719353800_1888763186096958052_n.webp",
   },
   {
     id: 6,
@@ -435,10 +436,12 @@ function ReviewCard({ review, onImageClick }: CardProps) {
               onClick={() => onImageClick(review.imageSrc!)}
               className="relative rounded-lg overflow-hidden border border-slate-100 bg-[#e5ddd5] aspect-[16/9] cursor-pointer group-hover:border-emerald-300 transition-all duration-300 flex items-center justify-center"
             >
-              <img
+              <Image
                 src={review.imageSrc}
                 alt={`${review.name} chat review`}
-                className="w-full h-full object-cover opacity-90 group-hover:scale-102 transition-transform duration-300"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover opacity-90 group-hover:scale-102 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-navy/20 group-hover:bg-navy/35 transition-colors flex items-center justify-center">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white text-navy font-bold text-xs shadow-md border border-line">

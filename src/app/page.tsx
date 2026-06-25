@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { NcsbnHero } from "@/components/home/NcsbnHero";
 import { WhatWeOffer } from "@/components/home/WhatWeOffer";
 import { WhyNclexPrepNation } from "@/components/home/WhyNclexPrepNation";
@@ -6,11 +7,21 @@ import { NcsbnPathways } from "@/components/home/NcsbnPathways";
 import { NcsbnPromoSections } from "@/components/home/NcsbnPromoSections";
 import { NcsbnNews } from "@/components/home/NcsbnNews";
 import { NcsbnPreFooter } from "@/components/home/NcsbnPreFooter";
-import { TestimonialCarousel } from "@/components/testimonials/TestimonialCarousel";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { WebPageJsonLd } from "@/components/seo/JsonLd";
 import { createPageMetadata } from "@/lib/metadata";
+
+const TestimonialCarousel = dynamic(
+  () => import("@/components/testimonials/TestimonialCarousel").then((mod) => mod.TestimonialCarousel),
+  {
+    loading: () => (
+      <div className="h-[300px] flex items-center justify-center text-slate-400 font-medium">
+        Loading Reviews...
+      </div>
+    ),
+  }
+);
 
 const description =
   "NCLEX Prep Nation helps nursing candidates prepare for NCLEX-RN and NCLEX-PN with study materials, practice questions, NGN-style case studies, diagnostic support, and guided preparation.";

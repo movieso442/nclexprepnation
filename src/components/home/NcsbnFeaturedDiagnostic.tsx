@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Calendar, MapPin, ClipboardCheck, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
@@ -9,10 +10,12 @@ export function NcsbnFeaturedDiagnostic() {
         <div className="grid gap-10 lg:grid-cols-[0.4fr_0.6fr] lg:items-center border border-line rounded-lg overflow-hidden bg-white p-6 sm:p-8 hover:shadow-md transition-shadow">
           {/* Image Container */}
           <div className="relative rounded overflow-hidden border border-line bg-soft aspect-square lg:aspect-auto lg:h-full min-h-[260px]">
-            <img
+            <Image
               src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?auto=format&fit=crop&w=800&q=80"
               alt="Prioritization illustration representing test diagnostic"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              className="object-cover"
             />
           </div>
           {/* Content Container */}

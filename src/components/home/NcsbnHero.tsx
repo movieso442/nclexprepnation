@@ -1,19 +1,28 @@
+import Image from "next/image";
 import { PlayCircle } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
 export function NcsbnHero() {
   return (
     <section className="relative overflow-hidden bg-white text-navy min-h-[520px] flex items-center border-b border-line">
-      <div
-        aria-hidden
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage:
-            "url('/images/medical-globe-hero.png'), url('/images/nursing_care_hero.png')",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      />
+      <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden>
+        <Image
+          src="/images/nursing_care_hero.webp"
+          alt="Nursing Care Background"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <Image
+          src="/images/medical-globe-hero.webp"
+          alt="Medical Globe Overlay"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
       <div className="absolute inset-0 z-0 bg-gradient-to-r from-white via-white/80 to-white/20" />
 
       {/* Mobile-only white overlay to ensure dark text is readable on tiny viewports */}
