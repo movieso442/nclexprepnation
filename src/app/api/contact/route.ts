@@ -1,3 +1,4 @@
+import { Resend } from "resend";
 import { z } from "zod";
 
 import {
@@ -52,7 +53,7 @@ function escapeHtml(value: string) {
 
 function formatFieldsAsText(fields: EmailField[], disclaimer: string) {
   const details = fields.map((field) => `${field.label}:\n${field.value}`).join("\n\n");
-  return `Submission Details\n\n${details}\n\n------------------\n${disclaimer}`;
+  return `New NCLEX Prep Nation Request\n\n${details}\n\n------------------\n${disclaimer}`;
 }
 
 function formatFieldsAsHtml(fields: EmailField[], disclaimer: string, whatsappLink?: string) {
@@ -116,6 +117,8 @@ async function sendResendEmail({
     throw new Error("RESEND_API_KEY is not configured.");
   }
 
+  const resend = new Resend(apiKey);
+
   const from =
     process.env.RESEND_FROM_EMAIL ||
     "NCLEX Prep Nation <support@nclexprepnation.com>";
@@ -128,25 +131,17 @@ async function sendResendEmail({
   const disclaimer =
     "NCLEX Prep Nation is an independent educational preparation platform. NCLEX® is a registered trademark of the National Council of State Boards of Nursing, Inc. NCLEX Prep Nation is not affiliated with or endorsed by NCSBN or Pearson VUE.";
 
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to,
-      subject,
-      reply_to: replyTo,
-      text: formatFieldsAsText(fields, disclaimer),
-      html: formatFieldsAsHtml(fields, disclaimer, whatsappLink),
-    }),
+  const { error } = await resend.emails.send({
+    from,
+    to,
+    subject,
+    replyTo,
+    text: formatFieldsAsText(fields, disclaimer),
+    html: formatFieldsAsHtml(fields, disclaimer, whatsappLink),
   });
 
-  if (!response.ok) {
-    const message = await response.text();
-    throw new Error(`Resend email failed: ${message}`);
+  if (error) {
+    throw new Error(`Resend email failed: ${error.message}`);
   }
 }
 

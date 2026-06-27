@@ -7,7 +7,6 @@ import { z } from "zod";
 
 import {
   getRequestAccessWhatsAppHref,
-  packageInterestLabels,
 } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
@@ -62,15 +61,41 @@ export function RequestAccessForm() {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    const rawPackageFromUrl =
-      searchParams.get("package") || searchParams.get("service");
-    const packageFromUrl =
-      rawPackageFromUrl === "materials"
-        ? "exam-prep-materials"
-        : rawPackageFromUrl;
+    const rawValue = searchParams.get("package") || searchParams.get("service");
 
-    if (packageFromUrl && packageFromUrl in packageInterestLabels) {
-      setValue("packageInterest", packageFromUrl);
+    if (rawValue) {
+      const normalized = rawValue.toLowerCase().trim();
+      let matchedValue = "general-inquiry";
+
+      if (normalized === "guided-support") {
+        matchedValue = "guided-support";
+      } else if (
+        normalized === "starter-materials" ||
+        normalized === "starter" ||
+        normalized === "materials"
+      ) {
+        matchedValue = "starter-materials";
+      } else if (normalized === "premium-access" || normalized === "premium") {
+        matchedValue = "premium-access";
+      } else if (
+        normalized === "score-improvement-support" ||
+        normalized === "score-improvement"
+      ) {
+        matchedValue = "score-improvement-support";
+      } else if (normalized === "free" || normalized === "free-diagnostic") {
+        matchedValue = "free-diagnostic";
+      } else if (normalized === "certificate") {
+        matchedValue = "certificate";
+      } else if (normalized === "practice-questions") {
+        matchedValue = "practice-questions";
+      } else if (
+        normalized === "study-resources" ||
+        normalized === "resources"
+      ) {
+        matchedValue = "study-resources";
+      }
+
+      setValue("packageInterest", matchedValue);
     }
   }, [setValue]);
 
@@ -241,13 +266,15 @@ export function RequestAccessForm() {
             <option disabled value="">
               Select a service or package
             </option>
-            <option value="exam-prep-materials">Exam Prep Materials</option>
-            <option value="certificate">Certificate Program</option>
-            <option value="score-improvement">Score Improvement Support</option>
-            <option value="starter">Starter Package</option>
-            <option value="premium">Premium Package</option>
+            <option value="free-diagnostic">Free Diagnostic</option>
+            <option value="starter-materials">Starter Materials</option>
+            <option value="premium-access">Premium Access</option>
             <option value="guided-support">Guided Support</option>
-            <option value="recommendation">I need a recommendation</option>
+            <option value="score-improvement-support">Score Improvement Support</option>
+            <option value="certificate">Certificate Program</option>
+            <option value="practice-questions">Practice Questions</option>
+            <option value="study-resources">Study Resources</option>
+            <option value="general-inquiry">General Inquiry</option>
           </Select>
           <FieldError message={errors.packageInterest?.message} />
         </label>
