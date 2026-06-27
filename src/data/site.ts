@@ -20,13 +20,15 @@ export const examTypeLabels: Record<string, string> = {
 };
 
 export const packageInterestLabels: Record<string, string> = {
-  "exam-prep-materials": "Exam Prep Materials",
-  certificate: "Certificate Program",
-  "score-improvement": "Score Improvement Support",
-  starter: "Starter Package",
-  premium: "Premium Package",
+  "free-diagnostic": "Free Diagnostic",
+  "starter-materials": "Starter Materials",
+  "premium-access": "Premium Access",
   "guided-support": "Guided Support",
-  recommendation: "I need a recommendation",
+  "score-improvement-support": "Score Improvement Support",
+  "certificate": "Certificate Program",
+  "practice-questions": "Practice Questions",
+  "study-resources": "Study Resources",
+  "general-inquiry": "General Inquiry",
 };
 
 export const preferredContactLabels: Record<string, string> = {
