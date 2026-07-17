@@ -59,7 +59,7 @@ export function WhatWeOffer() {
           <p className="mt-3 text-sm sm:text-base text-slate-500 max-w-2xl mx-auto">
            We have got the questions covering the core NCLEX subject areas and are designed based on current exam patterns and high-yield testing topics. They are structured to closely reflect the difficulty level and format you should expect in your exam, which helps candidates become familiar and confident before test day.
           </p>
-        </div>
+        </div>++
 
         <div className="grid gap-8 md:grid-cols-3">
           {offers.map((offer, index) => {
