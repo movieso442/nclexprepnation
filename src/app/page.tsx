@@ -53,7 +53,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-10">
             <h2 className="text-2xl sm:text-3xl md:text-[32px] font-normal text-navy tracking-tight leading-tight">
-              Review
+              Reviews
             </h2>
             <p className="mt-4 text-[14px] sm:text-[15px] text-slate-500 max-w-2xl mx-auto leading-6">
               Hear directly from nursing candidates who used NCLEX Prep Nation for RN and PN preparation. Verified screenshots from candidate chat logs.
