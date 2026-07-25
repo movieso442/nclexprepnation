@@ -15,6 +15,19 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Canonicalize www -> apex domain (nclexprepnation.com) with a
+      // permanent 301 so search engines consolidate ranking signals
+      // onto a single host instead of splitting them across both.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.nclexprepnation.com" }],
+        destination: "https://nclexprepnation.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

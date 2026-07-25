@@ -11,7 +11,7 @@ const description =
   "Find answers about NCLEX Prep Nation study materials, RN and PN practice questions, NGN case studies, certificates, access requests, and U.S. or Canada preparation support.";
 
 export const metadata = createPageMetadata({
-  title: "NCLEX Prep Frequently Asked Questions",
+  title: "NCLEX Prep FAQ",
   description,
   path: "/faq",
   keywords: ["NCLEX prep FAQ", "NCLEX questions and answers", "NCLEX prep support"],

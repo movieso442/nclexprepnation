@@ -12,7 +12,7 @@ const description =
   "Explore NCLEX-RN, NCLEX-PN, NGN case study, international nurse, rationale review, and study planning guidance for U.S. and Canada exam pathways.";
 
 export const metadata = createPageMetadata({
-  title: "NCLEX Prep Blog for RN, PN, and International Nurses",
+  title: "NCLEX Prep Blog: RN & PN Exam Tips",
   description,
   path: "/blog",
   keywords: ["NCLEX prep blog", "NCLEX study tips", "NCLEX for international nurses"],

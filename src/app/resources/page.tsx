@@ -20,7 +20,7 @@ const description =
   "Explore NCLEX study resources for U.S. and Canada candidates, including study guides, pharmacology, lab values, prioritization, exam-day checklists, and NGN preparation materials.";
 
 export const metadata = createPageMetadata({
-  title: "NCLEX Study Resources for U.S. and Canada Candidates",
+  title: "NCLEX Study Resources & Prep Materials",
   description,
   path: "/resources",
   keywords: ["NCLEX study resources", "NCLEX study materials", "NCLEX prep materials"],
