@@ -3,6 +3,7 @@ import { BarChart3, ClipboardList, Route } from "lucide-react";
 import { InfoGrid } from "@/components/layout/InfoGrid";
 import { PageCTA } from "@/components/layout/PageCTA";
 import { PageHero } from "@/components/layout/PageHero";
+import { TestimonialsPreview } from "@/components/home/TestimonialsPreview";
 import { WebPageJsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/ui/Section";
 import { createPageMetadata } from "@/lib/metadata";
@@ -72,6 +73,8 @@ export default function FreeDiagnosticPage() {
         />
 
       </Section>
+
+      <TestimonialsPreview />
 
       <PageCTA
         description="Tell us whether you are preparing for NCLEX-RN or NCLEX-PN, and we will help you choose a useful starting point."

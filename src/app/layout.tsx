@@ -10,7 +10,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "NCLEX Prep Nation | NCLEX-RN & NCLEX-PN Prep for U.S. and Canada",
+    default: "NCLEX Prep Nation | NCLEX-RN & NCLEX-PN Exam Prep",
     template: "%s | NCLEX Prep Nation",
   },
   description: siteConfig.description,
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "NCLEX Prep Nation | NCLEX-RN & NCLEX-PN Prep for U.S. and Canada",
+    title: "NCLEX Prep Nation | NCLEX-RN & NCLEX-PN Exam Prep",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: "NCLEX Prep Nation",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "NCLEX Prep Nation | NCLEX-RN & NCLEX-PN Prep for U.S. and Canada",
+    title: "NCLEX Prep Nation | NCLEX-RN & NCLEX-PN Exam Prep",
     description: siteConfig.description,
     images: ["/images/medical-globe-hero.png"],
   },

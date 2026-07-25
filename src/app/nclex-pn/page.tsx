@@ -3,6 +3,7 @@ import { Activity, Baby, HeartPulse, MessageCircleMore, ShieldCheck, Tablets } f
 import { InfoGrid } from "@/components/layout/InfoGrid";
 import { PageCTA } from "@/components/layout/PageCTA";
 import { PageHero } from "@/components/layout/PageHero";
+import { TestimonialsPreview } from "@/components/home/TestimonialsPreview";
 import { WebPageJsonLd } from "@/components/seo/JsonLd";
 import { Section } from "@/components/ui/Section";
 import { createPageMetadata } from "@/lib/metadata";
@@ -55,6 +56,10 @@ export default function NclexPnPage() {
           ]}
         />
       </Section>
+      <TestimonialsPreview
+        heading="What NCLEX-PN candidates say"
+        description="Real, verified feedback from practical nursing candidates who used NCLEX Prep Nation for NCLEX-PN preparation."
+      />
       <PageCTA
         description="Start with a topic check or request PN study materials, practice questions, and an organized study plan."
         primaryHref="/free-diagnostic"

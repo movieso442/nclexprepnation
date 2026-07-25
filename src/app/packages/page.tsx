@@ -2,6 +2,7 @@ import { Check, HelpCircle } from "lucide-react";
 
 import { PageCTA } from "@/components/layout/PageCTA";
 import { PageHero } from "@/components/layout/PageHero";
+import { TestimonialsPreview } from "@/components/home/TestimonialsPreview";
 import { WebPageJsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -149,6 +150,7 @@ export default function PackagesPage() {
           </div>
         </div>
       </Section>
+      <TestimonialsPreview />
       <PageCTA
         description="Share your exam type and study needs before confirming a package. There is no automated checkout in this phase."
         primaryLabel="Send Package Request"

@@ -24,10 +24,10 @@ const TestimonialCarousel = dynamic(
 );
 
 const description =
-  "Official website of NCLEX Prep Nation, an independent NCLEX preparation platform offering NCLEX-RN and NCLEX-PN study materials, practice questions, NGN-style case studies, diagnostic support, and guided exam preparation.";
+  "NCLEX-RN and NCLEX-PN prep materials, practice questions, NGN case studies, and guided exam preparation for candidates in the U.S. and Canada.";
 
 export const metadata = createPageMetadata({
-  title: "NCLEX Prep Nation | NCLEX-RN & NCLEX-PN Prep for U.S. and Canada",
+  title: "NCLEX Prep Nation | NCLEX-RN & NCLEX-PN Exam Prep",
   description,
   path: "/",
   keywords: ["NCLEX Prep Nation", "NCLEX Prep Nation official website", "NCLEX preparation", "NCLEX prep for U.S. candidates", "NCLEX prep for Canadian candidates"],

@@ -7,7 +7,7 @@ const description =
   "Practice NCLEX-style questions by topic, review rationales, and build confidence with NGN-style case studies for NCLEX-RN and NCLEX-PN preparation.";
 
 export const metadata = createPageMetadata({
-  title: "NCLEX Practice Questions With Rationales",
+  title: "NCLEX Practice Questions & Rationales",
   description,
   path: "/practice-questions",
   keywords: [
